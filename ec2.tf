@@ -7,7 +7,7 @@ module "ec2_instance" {
   ami = "ami-020cba7c55df1f615" #ami of ubuntu
   key_name      = "india" # name of pem file
   monitoring    = false
-  subnet_id     = "subnet-09fb3f4b15cf292d2" # id of subnet in which you want to create it
+  subnet_id = module.vpc.public_subnets[0] # id of subnet in which you want to create ec2, the vpc and ec2 .tf files should be in the same directory to access each others output
   associate_public_ip_address = true # to get public ip in ec2
   vpc_security_group_ids = ["sg-0c5f6e51f657a90ef"] # a security group written in aws account with desired ingress and egress rules , has to be in list
 
