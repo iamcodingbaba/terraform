@@ -9,7 +9,7 @@ module "ec2_instance" {
   monitoring    = false
   subnet_id = module.vpc.public_subnets[0] # id of subnet in which you want to create ec2, the vpc and ec2 .tf files should be in the same directory to access each others output
   associate_public_ip_address = true # to get public ip in ec2
-  vpc_security_group_ids = [module.web_server_sg.security_group_id] # output taken from module web_server_sg {we can change its name in security group.tf file and then here also.}
+  vpc_security_group_ids = [module.range_22_to_443_sg.security_group_id] # output taken from module web_server_sg {we can change its name in security group.tf file and then here also.}
 
 
   tags = {
